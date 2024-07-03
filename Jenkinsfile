@@ -13,9 +13,7 @@ pipeline {
         }
 
         stage('Build and Test') {
-            environment {
-                // Define any specific environment variables for this stage
-            }
+\
             steps {
                 script {
                     // Run commands inside a Docker container
