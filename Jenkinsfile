@@ -1,23 +1,29 @@
 pipeline {
-    agent {
-        docker {
-            image 'cimg/openjdk:21.0.2-browsers'
-            args '-v /var/run/docker.sock:/var/run/docker.sock' // Mount Docker socket if needed
-        }
-    }
+    agent any
+
     environment {
         APPLITOOLS_BATCH_ID = "${env.GIT_COMMIT}"
     }
+
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
+
         stage('Build and Test') {
+            environment {
+                // Define any specific environment variables for this stage
+            }
             steps {
-                sh 'mvn clean'
-                sh 'mvn -Dtest=Integration test'
+                script {
+                    // Run commands inside a Docker container
+                    docker.image('cimg/openjdk:21.0.2-browsers').inside {
+                        sh 'mvn clean'
+                        sh 'mvn -Dtest=Integration test'
+                    }
+                }
             }
         }
     }
