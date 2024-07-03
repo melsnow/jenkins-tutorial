@@ -74,7 +74,7 @@ public class Sample {
     }
 
     @Test
-    public void integrationTest(){
+    public void integrationTestTSkkk(){
         driver.get("https://applitools.com/helloworld/?diff2");
         eyes.check(Target.window());
     }
