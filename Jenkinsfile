@@ -1,27 +1,23 @@
- 
-
 pipeline {
     agent {
-        label 'ubuntu-latest'
+        docker {
+            image 'cimg/openjdk:21.0.2-browsers'
+            args '-v /var/run/docker.sock:/var/run/docker.sock' // Mount Docker socket if needed
+        }
+    }
+    environment {
+        APPLITOOLS_BATCH_ID = "${env.GIT_COMMIT}"
     }
     stages {
-        stage('Checkout code') {
+        stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/melsnow/jenkins-tutorial']])
+                checkout scm
             }
         }
-
-        stage('Build') {
+        stage('Build and Test') {
             steps {
-                // Use Maven to build the project
-                sh 'mvn clean package'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                // Run tests using Maven
-                sh 'mvn test'
+                sh 'mvn clean'
+                sh 'mvn -Dtest=Integration test'
             }
         }
     }
