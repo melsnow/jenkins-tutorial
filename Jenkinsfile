@@ -17,7 +17,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 sh 'mvn clean'
-                sh 'mvn -Dtest=ChromeTest test'
+                sh 'mvn -Dtest=DockerChromeVncTest test'
             }
         }
     }
