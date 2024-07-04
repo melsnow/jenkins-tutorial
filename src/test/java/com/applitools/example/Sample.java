@@ -49,7 +49,7 @@ public class Sample {
         options.addArguments("--headless");
         options.addArguments("--remote-allow-origins=*");
 
-        driver = WebDriverManager.chromedriver().clearDriverCache().capabilities(options).create();
+        driver = WebDriverManager.chromedriver().clearDriverCache().setup().capabilities(options).create();
 
         batch = new BatchInfo("CI/CD integration");
         runner = new VisualGridRunner(new RunnerOptions().testConcurrency(5));
