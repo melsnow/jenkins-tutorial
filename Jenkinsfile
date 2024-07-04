@@ -4,7 +4,9 @@ pipeline {
     //        image 'cimg/openjdk:21.0.2-browsers'
     //    }
     //}
-    agent any
+    agent {
+        label 'cimg/openjdk:21.0.2-browsers'
+    }
     environment {
         APPLITOOLS_BATCH_ID = "${env.GIT_COMMIT}"
     }
