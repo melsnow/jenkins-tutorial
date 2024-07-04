@@ -28,7 +28,7 @@ class ChromeTest {
 
     @Test
     void test() {
-        driver.get("https://codehit.net")
+        driver.get("https://codehit.net");
     }
 
 }
