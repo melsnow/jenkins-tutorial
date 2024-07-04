@@ -157,7 +157,7 @@ public class AcmeBankTests {
                 new RectangleSize(1200, 600));
     }
 
-    @Sample
+    //@Sample
     public void logIntoBankAccount() {
         // This test covers login for the Applitools demo site, which is a dummy banking app.
         // The interactions use typical Selenium WebDriver calls,
