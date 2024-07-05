@@ -79,7 +79,7 @@ public class Sample {
 
     @Test
     public void integrationTestTSkkk(){
-        driver.get("https://applitools.com/helloworld/?diff2");
+        driver.get("https://codehit.net");
         eyes.check(Target.window());
     }
 
