@@ -16,8 +16,8 @@ pipeline {
         }
         stage('Build and Test') {
             steps {
-                sh 'mvn clean'
-                sh 'mvn -Dtest=ChromeTest test'
+                bat 'mvn clean'
+                bat 'mvn -Dtest=ChromeTest test'
             }
         }
     }
