@@ -22,7 +22,7 @@ import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.By;
 //import org.openqa.selenium.By;
 //import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 //import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -49,8 +49,11 @@ public class Sample {
         options.addArguments("--headless");
         options.addArguments("--remote-allow-origins=*");
 
+        WebDriverManager.chromedriver().setup();
 
-        driver = WebDriverManager.chromedriver().clearDriverCache().capabilities(options).create();
+        driver = new ChromeDriver(options);
+
+        // driver = WebDriverManager.chromedriver().clearDriverCache().capabilities(options).create();
 
         batch = new BatchInfo("CI/CD integration");
         runner = new VisualGridRunner(new RunnerOptions().testConcurrency(5));
