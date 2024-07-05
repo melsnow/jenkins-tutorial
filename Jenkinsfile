@@ -1,6 +1,6 @@
 pipeline {
     agent {
-       docker {
+       any {
            image 'cimg/openjdk:21.0.2-browsers'
        }
     }
