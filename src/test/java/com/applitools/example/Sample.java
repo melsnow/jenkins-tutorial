@@ -49,7 +49,6 @@ public class Sample {
         options.addArguments("--headless");
         options.addArguments("--remote-allow-origins=*");
 
-         WebDriverManager.chromedriver().setup();
 
         driver = WebDriverManager.chromedriver().clearDriverCache().capabilities(options).create();
 
