@@ -1,9 +1,10 @@
 pipeline {
-    agent {
-       any {
-           image 'cimg/openjdk:21.0.2-browsers'
-       }
-    }
+    // agent {
+    //    any {
+    //        image 'cimg/openjdk:21.0.2-browsers'
+    //    }
+    // }
+    agent any
     environment {
         APPLITOOLS_BATCH_ID = "${env.GIT_COMMIT}"
     }
